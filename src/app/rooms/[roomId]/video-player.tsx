@@ -1,5 +1,5 @@
 "use client";
-
+// @ts-ignore: side-effect import of CSS without type declarations
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import { Room } from "@/db/schema";
 import {
@@ -16,6 +16,7 @@ import { useSession } from "next-auth/react";
 import { useCallback, useEffect, useState } from "react";
 import { generateTokenAction } from "./actions";
 import { useRouter } from "next/navigation";
+
 
 const apiKey = process.env.NEXT_PUBLIC_GET_STREAM_API_KEY!;
 
