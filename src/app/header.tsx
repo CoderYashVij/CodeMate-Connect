@@ -88,18 +88,6 @@ function AccountDropdown() {
                   {getInitials(session.data?.user?.name)}
                 </AvatarFallback>
               )}
-              {/* <AvatarImage
-                src={session.data?.user?.image ?? ""}
-                onError={(e) => {
-                  console.log(
-                    "Avatar image failed to load:",
-                    session.data?.user?.image
-                  );
-                }}
-              />
-              <AvatarFallback>
-                {getInitials(session.data?.user?.name)}
-              </AvatarFallback> */}
             </Avatar>
 
             {session.data?.user?.name}
