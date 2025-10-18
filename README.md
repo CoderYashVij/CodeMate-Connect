@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CodeMate Connect
 
-## Getting Started
+![CodeMate Connect Logo](public/icon.png)
 
-First, run the development server:
+## Find Your Pair Programming Partner
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+CodeMate Connect is a collaborative platform that connects developers for real-time pair programming sessions. It enables developers to share their screens, code together, and learn from each other in a virtual coding environment.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Real-Time Video Collaboration**: Connect with other developers via high-quality video calls powered by Stream's Video SDK
+- **Project Discovery**: Browse through active coding rooms categorized by technologies and interests
+- **Project Rooms**: Create your own coding room with descriptions and GitHub project links
+- **Tagging System**: Find relevant projects through a comprehensive tagging system
+- **User Authentication**: Secure authentication with NextAuth
+- **Dark/Light Mode**: Choose your preferred theme for optimal coding experience
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Frontend**: Next.js 14, React 18, TailwindCSS
+- **Video SDK**: Stream IO Video React SDK
+- **Authentication**: NextAuth.js
+- **Database**: PostgreSQL
+- **ORM**: Drizzle ORM
+- **UI Components**: Radix UI, Shadcn UI
+- **Styling**: Tailwind CSS
+- **Form Handling**: React Hook Form, Zod
+- **Containerization**: Docker
 
-To learn more about Next.js, take a look at the following resources:
+## 📋 Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Before running this project, make sure you have the following installed:
+- Node.js 18+ and npm
+- Docker and Docker Compose (for PostgreSQL database)
+- Stream IO account for video API keys
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## ⚙️ Environment Setup
 
-## Deploy on Vercel
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/CoderYashVij/CodeMate-Connect.git
+   cd CodeMate-Connect
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Create a `.env.local` file in the root directory with the following variables:
+   ```
+   # Database
+   DATABASE_URL="postgresql://postgres:password123@localhost:5432/codemate_connect"
+   
+   # Authentication
+   NEXTAUTH_SECRET="your-nextauth-secret"
+   NEXTAUTH_URL="http://localhost:3000"
+   
+   # OAuth Providers (Add your own credentials)
+   GITHUB_ID="your-github-client-id"
+   GITHUB_SECRET="your-github-client-secret"
+   
+   # Stream IO Video API
+   NEXT_PUBLIC_GET_STREAM_API_KEY="your-stream-api-key"
+   GET_STREAM_API_SECRET="your-stream-api-secret"
+   ```
+
+## 🏃‍♂️ Running the Application
+
+1. Start the PostgreSQL database:
+   ```bash
+   docker-compose up -d
+   ```
+
+2. Push database schema:
+   ```bash
+   npm run db:push
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📝 Usage
+
+1. **Create an Account**: Sign in using GitHub OAuth
+2. **Browse Rooms**: Explore available coding rooms on the browse page
+3. **Join a Room**: Click on a room card to join an active session
+4. **Create Your Own Room**: Set up your own coding session by creating a new room
+5. **Collaborate**: Share your screen, communicate via video, and code together
+
+## 🧑‍💻 Development Tools
+
+- **Database Studio**: Run `npm run db:studio` to open Drizzle Kit studio for database management
+- **Linting**: Run `npm run lint` to check for code quality issues
+
+## 📦 Deployment
+
+The application is ready for deployment on platforms like Vercel:
+
+1. Connect your GitHub repository to Vercel
+2. Configure the environment variables
+3. Deploy!
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+Built with ❤️ by [CoderYashVij](https://github.com/CoderYashVij)
