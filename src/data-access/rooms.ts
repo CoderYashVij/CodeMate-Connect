@@ -1,14 +1,37 @@
 import { db } from "@/db";
 import { Room, room } from "@/db/schema";
-import { eq } from "drizzle-orm";
-import { like } from "drizzle-orm";
+import { eq, or, ilike } from "drizzle-orm";
 import { getSession } from "@/lib/auth";
 
 export async function getRooms(search: string | undefined) {
-  const where = search ? like(room.tags, `%${search}%`) : undefined;
+  if (!search || !search.trim()) {
+    const rooms = await db.query.room.findMany();
+    return rooms;
+  }
+
+  const searchLower = search.toLowerCase().trim();
+  
+  // Only match if search term starts any word in tags (case insensitive)
+  // Patterns to match word beginnings:
+  // 1. At the very beginning of tags
+  // 2. After a space (word boundary)
+  // 3. After a comma (tag separator)
+  const patterns = [
+    `${searchLower}%`,        // starts at beginning: "py" matches "Python, JavaScript"
+    `% ${searchLower}%`,      // starts after space: "py" matches "JavaScript Python"
+    `,${searchLower}%`,       // starts after comma: "py" matches "JavaScript,Python"  
+    `, ${searchLower}%`,      // starts after comma+space: "py" matches "JavaScript, Python"
+  ];
+  
+  // Build OR conditions for word-start matching only
+  const whereConditions = patterns.map(pattern => 
+    ilike(room.tags, pattern)
+  );
+
   const rooms = await db.query.room.findMany({
-    where,
+    where: or(...whereConditions),
   });
+  
   return rooms;
 }
 

@@ -122,11 +122,11 @@ export function Header() {
   const isLoggedIn = !!session.data;
 
   return (
-    <header className="bg-gray-100 py-2 dark:bg-gray-900 z-10 relative">
+    <header className="bg-card border-b border-border py-2 z-10 relative">
       <div className="container mx-auto flex justify-between items-center">
         <Link
           href="/"
-          className="flex gap-2 items-center text-xl hover:underline"
+          className="flex gap-2 items-center text-xl hover:underline font-semibold"
         >
           <Image
             src="/icon.png"

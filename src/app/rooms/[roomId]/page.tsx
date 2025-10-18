@@ -40,7 +40,7 @@ export default async function RoomPage(props: { params: { roomId: string } }) {
             </Link>
           )}
 
-          <p className="text-base text-gray-600">{room?.description}</p>
+          <p className="text-base text-muted-foreground">{room?.description}</p>
 
           <TagsList tags={splitTags(room.tags)} />
         </div>
