@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+// @ts-ignore: side-effect import of CSS without type declarations
 import "./globals.css";
 import { Providers } from "./provider";
 import { Header } from "./header";

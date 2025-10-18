@@ -31,6 +31,15 @@ function AccountDropdown() {
   const session = useSession();
   const [open, setOpen] = useState(false);
 
+  const getInitials = (name: string | null | undefined) => {
+    if (!name) return "CN";
+    return name
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase())
+      .slice(0, 2) // Take only first 2 initials
+      .join("");
+  };
+
   return (
     <>
       <AlertDialog open={open} onOpenChange={setOpen}>
@@ -61,7 +70,7 @@ function AccountDropdown() {
           <Button variant={"link"}>
             <Avatar className="mr-2">
               <AvatarImage src={session.data?.user?.image ?? ""} />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>{getInitials(session.data?.user?.name)}</AvatarFallback>
             </Avatar>
 
             {session.data?.user?.name}
@@ -108,7 +117,7 @@ export function Header() {
             height="60"
             alt="the application icon of a magnifying glass"
           />
-          DevFinder
+          Codemate Connect
         </Link>
 
         <nav className="flex gap-8">
