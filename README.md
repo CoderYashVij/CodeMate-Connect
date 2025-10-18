@@ -1,6 +1,6 @@
 # CodeMate Connect
 
-![CodeMate Connect Logo](public/icon.png)
+<img src="public/icon.png" width="100" alt="CodeMate Connect Logo"/>
 
 ## Find Your Pair Programming Partner
 
