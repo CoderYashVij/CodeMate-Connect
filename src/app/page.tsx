@@ -20,11 +20,11 @@ export default function LandingPage() {
         <div className="mx-auto max-w-2xl py-12">
           <div className="text-center">
             <Image
-              className="inline-block"
+              className="inline-block rounded-full"
               src="/icon.png"
               width="200"
               height="200"
-              alt="dev finder logo"
+              alt="Codemate Connect logo"
             />
 
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">

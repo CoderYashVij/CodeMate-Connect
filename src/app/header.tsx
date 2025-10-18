@@ -30,15 +30,18 @@ import { deleteAccountAction } from "./actions";
 function AccountDropdown() {
   const session = useSession();
   const [open, setOpen] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const getInitials = (name: string | null | undefined) => {
     if (!name) return "CN";
     return name
       .split(" ")
-      .map(word => word.charAt(0).toUpperCase())
+      .map((word) => word.charAt(0).toUpperCase())
       .slice(0, 2) // Take only first 2 initials
       .join("");
   };
+
+  const userImage = session.data?.user?.image;
 
   return (
     <>
@@ -69,8 +72,34 @@ function AccountDropdown() {
         <DropdownMenuTrigger asChild>
           <Button variant={"link"}>
             <Avatar className="mr-2">
-              <AvatarImage src={session.data?.user?.image ?? ""} />
-              <AvatarFallback>{getInitials(session.data?.user?.name)}</AvatarFallback>
+              {userImage && !imageError ? (
+                <Image
+                  src={userImage}
+                  alt="User avatar"
+                  width={32}
+                  height={32}
+                  className="aspect-square h-full w-full"
+                  onError={() => setImageError(true)}
+                  priority={false}
+                  unoptimized // Add this if you still get issues
+                />
+              ) : (
+                <AvatarFallback>
+                  {getInitials(session.data?.user?.name)}
+                </AvatarFallback>
+              )}
+              {/* <AvatarImage
+                src={session.data?.user?.image ?? ""}
+                onError={(e) => {
+                  console.log(
+                    "Avatar image failed to load:",
+                    session.data?.user?.image
+                  );
+                }}
+              />
+              <AvatarFallback>
+                {getInitials(session.data?.user?.name)}
+              </AvatarFallback> */}
             </Avatar>
 
             {session.data?.user?.name}
@@ -115,7 +144,8 @@ export function Header() {
             src="/icon.png"
             width="60"
             height="60"
-            alt="the application icon of a magnifying glass"
+            alt="the application icon."
+            className="rounded-full"
           />
           Codemate Connect
         </Link>

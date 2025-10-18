@@ -28,39 +28,39 @@ import { deleteRoomAction } from "./actions";
 
 export function UserRoomCard({ room }: { room: Room }) {
   return (
-    <Card>
+    <Card className="flex flex-col">
       <CardHeader className="relative">
-        <Button className="absolute top-2 right-2" size="icon">
+        <Button asChild className="absolute top-2 right-2" size="icon" variant="outline">
           <Link href={`/edit-room/${room.id}`}>
-            <PencilIcon />
+            <PencilIcon className="w-4 h-4" />
           </Link>
         </Button>
-        <CardTitle>{room.name}</CardTitle>
+        <CardTitle className="pr-12">{room.name}</CardTitle>
         <CardDescription>{room.description}</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="flex flex-col gap-4 flex-grow">
         <TagsList tags={splitTags(room.tags)} />
         {room.githubRepo && (
           <Link
             href={room.githubRepo}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 text-sm hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <GithubIcon />
+            <GithubIcon className="w-4 h-4" />
             Github Project
           </Link>
         )}
       </CardContent>
-      <CardFooter className="flex gap-2">
-        <Button asChild>
+      <CardFooter className="flex gap-2 pt-4">
+        <Button asChild className="flex-1">
           <Link href={`/rooms/${room.id}`}>Join Room</Link>
         </Button>
 
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant={"destructive"}>
-              <TrashIcon className="w-4 h-4 mr-2" /> Delete Room
+            <Button variant="destructive" size="sm" className="shrink-0">
+              <TrashIcon className="w-4 h-4" />
             </Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
