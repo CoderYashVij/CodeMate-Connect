@@ -59,7 +59,7 @@ export function CreateRoomForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input {...field} placeholder="Dev Finder Is Awesome" />
+                <Input {...field} placeholder="I am enjoying Codemate Connect" />
               </FormControl>
               <FormDescription>This is your public room name.</FormDescription>
               <FormMessage />
@@ -76,11 +76,11 @@ export function CreateRoomForm() {
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="Im working on a side project, come join me"
+                  placeholder="Im working on a new project, come join me"
                 />
               </FormControl>
               <FormDescription>
-                Please describe what you are be coding on
+                Please describe what you are be coding on.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -96,7 +96,7 @@ export function CreateRoomForm() {
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="https://github.com/webdevcody/dev-finder"
+                  placeholder="https://github.com/CoderYashVij/CodeMate-Connect"
                 />
               </FormControl>
               <FormDescription>
@@ -118,7 +118,7 @@ export function CreateRoomForm() {
               </FormControl>
               <FormDescription>
                 List your programming languages, frameworks, libraries so people
-                can find you content
+                can find your content.
               </FormDescription>
               <FormMessage />
             </FormItem>
