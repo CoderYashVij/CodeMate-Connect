@@ -30,7 +30,7 @@ CodeMate Connect is a collaborative platform that connects developers for real-t
 <img src="public/Page3.PNG" width="100%" alt="Video Collaboration Page"/>
 
 ### Edit Room - Edit or delete Your Rooms
-<img src="public/Page4.PNG" width="100%" alt="Create Room Page"/>
+<img src="public/Page4.PNG" width="100%" alt="Edit Room Page"/>
 
 ## �🛠️ Tech Stack
 
