@@ -15,7 +15,24 @@ CodeMate Connect is a collaborative platform that connects developers for real-t
 - **User Authentication**: Secure authentication with NextAuth
 - **Dark/Light Mode**: Choose your preferred theme for optimal coding experience
 
-## 🛠️ Tech Stack
+## � Screenshots
+
+### Home Page - Find Your Perfect Coding Partner
+<img src="public/Page1.PNG" width="700" alt="Home Page"/>
+
+### Create Room - Start Your Own Coding Session
+<img src="public/Page5.PNG" width="700" alt="Create Room Page"/>
+
+### Browse Rooms - Discover Active Coding Sessions
+<img src="public/Page2.PNG" width="700" alt="Browse Rooms Page"/>
+
+### Video Collaboration - Code Together in Real-time
+<img src="public/page3.PNG" width="700" alt="Video Collaboration Page"/>
+
+### Edit Room - Edit or delete Your Rooms
+<img src="public/Page4.PNG" width="700" alt="Create Room Page"/>
+
+## �🛠️ Tech Stack
 
 - **Frontend**: Next.js 14, React 18, TailwindCSS
 - **Video SDK**: Stream IO Video React SDK
