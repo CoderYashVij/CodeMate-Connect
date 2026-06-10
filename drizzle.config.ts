@@ -5,7 +5,7 @@ export default defineConfig({
   schema: "./src/db/schema.ts",
   dbCredentials: {
     // url: "postgresql://user:password@host:port/dbname",
-    url: process.env.DATABASE_URL!,
+    url: process.env.POSTGRES_URL_NON_POOLING!,
   },
   verbose: true,
   strict: true
