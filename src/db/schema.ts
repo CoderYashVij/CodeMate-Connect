@@ -6,7 +6,7 @@ import {
   integer,
   uuid,
 } from "drizzle-orm/pg-core";
-import type { AdapterAccount } from "next-auth/adapters";
+import type { AdapterAccount } from "@auth/core/adapters";
 import { sql } from "drizzle-orm";
 
 export const users = pgTable("user", {
